@@ -1,0 +1,690 @@
+                                            SHELL SCRIPTING ASSIGNMET
+                                           ----------------------------
+
+
+
+Question 1:
+---------
+Create a script that, when run, will display the following environment variables to the console:
+
+USER
+HOME
+HISTCONTROL
+TERM
+
+
+1.
+   echo $USER
+   echo $HOME
+   echo $HISTCONTROL
+   echo $TERM
+
+output:
+   srinivas7661
+   /home/srinivas7661
+
+   xterm-256color
+
+============================================================================================================================================================================================
+
+Question 2:
+---------
+
+Write a script that sets FOUR variables:
+
+MYUSERNAME
+MYPASSWORD
+STARTOFSCRIPT
+ENDOFSCRIPT
+
+Populate the first two with some default value and use command redirection to set the third and fourth value to the date/time of when the script was started and completed. Within the script, be sure to display the values to the terminal when run.
+
+
+
+2.
+   dt=$(date)
+   echo " START OF SCRIPT : $dt "
+   read -p 'username :' user_var
+   read -sp 'password :' pass_w
+   echo username : $srinivas7661
+   echo password : $srinu1999
+   echo " END OF SCRIPT :#dt "
+   echo $dt
+
+output:
+   Wed Jul  7 18:44:12 IST 2021
+
+============================================================================================================================================================================================
+
+Question 3:
+---------
+
+Write a script that sets FOUR variables:
+
+MYUSERNAME
+MYPASSWORD
+STARTOFSCRIPT
+ENDOFSCRIPT
+
+Populate the first two with some default value and use command redirection to set the third and fourth value to the date/time of when the script was started and completed. Within the script, be sure to display the values to the terminal when run.
+
+
+
+3.
+   clear  #clears the screen
+
+   #MYNAME="srinivas7661"
+   MYNAME="srinivas"
+
+   default: $MYNAME"
+   DATETIMESTAMP=`date`
+
+   echo "This is when the script was run : $DATETIMESTAMP"
+
+output:
+   We are using the default user called : srinivas
+   This is when the script was run : Wed Jul  7 18:44:12 IST 2021
+   srinivas7661@LAPTOP-32USOII7:/mnt/c/Users/srini/Assignments1$
+
+
+============================================================================================================================================================================================
+
+
+Question 4:
+---------
+
+Create a simple script that does the following:
+
+Echo a full sentence to the terminal
+Echo a different full sentence, but redirect it to /dev/null
+
+Run and display the results and make sure the statements appear where intended.
+
+
+4.
+   echo "My name is srinivas relangi"
+
+   echo "My name is srinivas relangi" >>/dev/null
+
+
+output:
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+
+==============================================================================================================================================================================================
+
+
+Question 5:
+---------
+
+Write a script that runs three commands:
+
+Evaluate an arithmetic expression
+Attempt to remove a file that does not exist in the current directory
+Evaluate another arithmetic expression
+
+
+Immediately after each command, echo the exit status of that command to the terminal using the appropriate variable to show success and failure exit codes.
+
+
+
+5.
+
+   set -e
+
+   expr 10 + 15
+   echo $?
+   rm pavan.sh
+   echo $?
+   expr 10 + 20
+   echo $?
+
+==============================================================================================================================================================================================
+
+
+Question 6:
+---------
+Write a script that evaluates and displays the following arithmetic operations:
+
+Add two numbers
+Add two numbers and multiply by a third, do not group anything 
+Add two numbers, grouped (changing order of precedence) and multiply by a third
+
+Keep in mind special characters and/or escape characters as needed.
+
+
+6.
+   expr 8 + 9
+   expr 2 + 5\* 6
+   expr \(2 + 2\) \* 4
+
+output:
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   17
+   expr: non-integer argument
+   expr: non-integer argument
+
+==========================================================================================================================================================================================
+
+
+Question 7:
+---------
+
+Write a script that evaluates and displays the following arithmetic operations:
+
+Add two numbers
+Add two numbers and multiply by a third, do not group anything 
+Add two numbers, grouped (changing order of precedence) and multiply by a third
+
+Keep in mind special characters and/or escape characters as needed.
+
+
+7.
+   shopt -s expand_aliases
+
+   alias TODAY="date"
+   alias UFLIES="find /home -user user"
+
+   TODAYSDATE=`date`
+   USERFILES=`find /home -user user`
+
+   echo "Today's Date : $TODAYDATE"
+   echo "All files owned by USER : $USERFILES"
+
+   A=`TODAY`
+   B=`UFILES`
+
+   echo "with alias, TODAY is : $A"
+   echo "with alias, UFILES is : $B"
+
+output:
+
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   find: ‘user’ is not the name of a known user
+  Today's Date :
+   All files owned by USER :
+   ./Assignment1.sh: line 14: UFILES: command not found
+   with alias, TODAY is : Tue Jul  6 22:00:10 IST 2021
+   with alias, UFILES is :
+
+==========================================================================================================================================================================================
+
+Question 8:
+---------
+
+Create a script that interacts with the user. You will want to prompt the user to enter the following information (which you will capture and place into the following variables):
+
+FIRSTNAME
+LASTNAME
+USERAGE
+
+Greet the user with their name and current age displayed and then calculate and display their age in 10 years.
+
+
+8.
+
+   echo "enter your first name :"
+   read FIRSTNAME 
+   echo " enter your last name :"
+   read LASTNAME
+
+
+   echo "your Full name is : $FIRSTNAME $LASTNAME"
+   echo "enter ur age"
+   read USERAGE
+   echo " After 10 years  ur age will be "  $USERAGE + 10
+
+output:
+
+srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+FIRSTNAME :
+LASTNAME :
+USERAGE :
+
+Good Afternoon   --  and your age after 10 years is 10
+
+============================================================================================================================================================================================
+
+
+Question 9:
+---------
+
+Write a script intended to iterate through an array called SERVERLIST containing at least four values (server names). Display all four values to the terminal when run.
+
+
+
+9.
+   LIST=("server01" "server02" "server03" "server04")
+   COUNT=0
+
+   for INDEX in ${LIST[@]}; do
+      echo "Process the server: ${LIST[COUNT]}"
+      COUNT="`expr $COUNT + 1`"
+   done    
+
+
+output:
+
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   Process the server: server01
+   Process the server: server02
+   Process the server: server03
+   Process the server: server04
+
+=============================================================================================================================================================================================
+
+
+Question 10:
+---------
+
+Create a script that, when run, will accept two command line values as arguments. These arguments should be a username and password and assigned to two variables in the script named appropriately. Finally, echo those values out to the terminal when run to indicate they were read and assigned as expected.
+
+
+10.
+   FIRSTNAME=$Srinivas
+   LASTNAME=$Relangi
+   echo "Firstname is $FIRSTNAME and  Lastname is $LASTNAME"
+
+output:
+
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   Firstname is  and  Lastname is
+
+===========================================================================================================================================================================================
+
+Question 11:
+---------
+
+Create a script that interacts with the user. Prompt them to guess a secret number between 1 and 5. Read the guess from the terminal and assign it to a variable. Using the 'if' statement from the course, test that value to determine if they guessed the right number (you choose the correct value). If they do, display a success message, otherwise do nothing.
+
+
+11.
+   echo "Enter a Number Between 1 and 5:"
+   read num
+   if (( $num < 5 ))
+   then 
+      echo "You choose the correct value"
+   else
+      echo "Invalid number"
+   fi
+
+
+output:
+
+   ramkalidindi22@DESKTOP-O5C5G46:/mnt/c/Users/ramka/Desktop$ ./Assignment1.sh
+   Enter a Number Between 1 and 5:
+   4
+   You choose the correct value
+   ramkalidindi22@DESKTOP-O5C5G46:/mnt/c/Users/ramka/Desktop$ ./Assignment1.sh
+   Enter a Number Between 1 and 5:
+   6
+   Invalid number
+
+===========================================================================================================================================================================================
+
+Question 12:
+--------
+
+Write a script that will prompt the user to enter a number between 1 and 3. Capture that number in a variable and then test that variable. Be sure to display the variable and it's value as appropriate within an if/then/else statement where the final statement will display if they did not enter a number between 1 and 3 telling them they failed to follow instructions. Redirect errors from each of the tests to /dev/null (to prevent script errors from showing if text is entered for example).
+
+
+
+12.
+   echo " enter a number between 1 and 3"
+   read value
+   if [ $value -eq 1 ] 2>/dev/null;
+   then
+      echo "you entres 1"
+      elif [ $value -eq 2 ] 2>/dev/null;
+      then
+      echo "you entered 2"
+      elif [ $value -eq 3 ] 2>/dev/null;
+      then
+      echo "you entered 3"
+      else
+      echo "your are failed to follow the instructions"
+      fi
+
+============================================================================================================================================================================================
+
+Question 13:
+--------
+
+Write a script that assigns a variable that contains a list of all shell scripts (*.sh) in the current directory (command redirection). Using the 'for'statement from the course, iterate through that list of files and display the filename of each and cat out the contents to the terminal.
+
+
+13.
+   echo "list all the shellscripts contents of the directory"
+
+   shellscripts='ShellAssaign*.sh'
+
+   for script in $shellscripts
+   do
+   display="'cat $script'"
+   echo"file:$script -contents $display"
+   done
+
+=============================================================================================================================================================================================
+
+
+Question14:
+--------
+
+Develop a simple three item menu to display on the terminal. Your script, upon display of the menu, should prompt the user to choose one of the three available options. Using the 'case' statement from the course, display three unique messages depending on which number they chose, with a catch all message letting them know if they went outside the bounds of instructions.
+
+
+14.
+   echo -e "Choose the menu : \c"
+   read menu
+
+   case $menu in
+      "Chicken Biryani" )
+            echo "Chicken Biryani(half) -- 150" ;;
+      "Mutton Biryani" )
+            echo "Chicken Biryani(full) -- 250" ;;
+      "Prawns Biryani" )
+            echo "Mutton Biryani -- 300" ;;
+      * )
+            echo "Out of Menu" ;;
+   esac
+
+
+output:
+
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   Choose the menu : Chicken Biryani
+   Chicken Biryani -- 150
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   Choose the menu : Prawns
+   Out of Menu
+
+============================================================================================================================================================================================
+
+
+Question 15:
+----------
+
+Create a script that prompts the user for a number. That number is to be used to display a simple message to the terminal X number of times (where X is the number captured from the user input). The message should include an indication of the number for each count the message is displayed.
+
+
+15.
+   
+   echo "enter file name :"
+   read file
+     while read -r superhero; do
+     echo" superhero name : $superhero"
+     done < "$file"
+
+===========================================================================================================================================================================================
+
+
+Question 16:
+----------
+Create a simple text file containing a list of super heros (or some names if preferred), use at least four values, one per line in the file.
+
+Write a bash shell script that then reads that file and displays it line by line on the terminal window.
+
+
+
+16.
+   echo "Enter names : "
+   read -a names
+   echo "The entered names are : ${names[0]}, ${names[1]}, ${names[2]}, ${names[3]}"
+
+output:
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   Enter names :
+   Naruto Eren Light Levi
+   The entered names are : Naurto, Eren, Light, Levi
+
+
+===========================================================================================================================================================================================
+
+
+Question 17:
+---------
+
+Create a simple text file containing a list of names (superheroes) and name it whatever you wish, should contain at least four values, one per line.
+
+Write a script that will use a file descriptor defined for both reading and writing to that file (pick an appropriate number greater than the system reserved handles as talked about in the course). Filtering that file into an appropriate loop, display all values with that file. Finally, once complete, write a message with the time/date stamp to the file and close the descriptor.
+
+
+
+
+17.
+   echo "Enter a file to read :"
+   read file
+   exec 5<>$file
+   while read -r superhero; do
+   echo "superhero name : $superhero"
+   done <&5
+   echo "file was read on : 'date' ">&5
+   exec 5>&-
+
+============================================================================================================================================================================================
+
+
+Question 18:
+---------
+
+Create a simple text file containing a list of names (superheroes) and name it whatever you wish, should contain at least four values, one per line.
+
+Write a script that will use a file descriptor defined for both reading and writing to that file (pick an appropriate number greater than the system reserved handles as talked about in the course). Filtering that file into an appropriate loop, display all values with that file. Finally, once complete, write a message with the time/date stamp to the file and close the descriptor.
+
+
+
+18.
+   echo "enter file name"
+   read file
+   echo "enter the delimiter"
+   read deli
+   IFS="$delim"
+   while read -r c m d;do
+   echo "c : $c"
+   echo "m : $m"
+   echo "d : $d"
+   done <"$file"
+
+============================================================================================================================================================================================
+
+
+Question 19:
+---------
+
+We need to create a menu for our users. Display a menu containing three choices AND a choice to allow them to exit. Display that menu and prompt for a choice. Upon choosing the value, it should simply clear the screen and redisplay the menu (loop until the exit choice is given).
+
+HOWEVER, we need to be sure that the end user cannot use CTL-C, CTL-Z or a KILL command to terminate the application. Add a 'trap' in the script to capture those attempts and provide instructions on how to exit the script using the menu choice instead.
+
+
+
+
+19.
+
+trap "echo signal detected" SIGINT SIGTSTP 9 15
+choices=(tea coffee milk exit)
+select i in ${choices[@]}
+do
+
+    echo $i
+    case $i in 
+        exit ) break ;;
+        tea )
+            echo $i 
+            for cmd in clear 
+            do
+                $cmd
+            done ;;
+        coffee ) 
+            for cmd in clear 
+            do
+                $cmd
+            done ;;
+        milk ) 
+            for cmd in clear 
+                do
+                    $cmd
+                done ;;
+        * ) echo "proper choice" ;;
+esac
+done
+exit 0
+
+============================================================================================================================================================================================
+
+
+Question 20:
+---------
+
+Create a script that accepts a command line parameter intended to be the name of a directory. With the script, attempt to change to the indicated directory, be sure to redirect errors to /dev/null on the command as we will be providing our own messaging.
+
+Test the results of the command to change directories. If it was successful, indicate success and display the contents of the directory. If it was not successful, indicate we cannot change directories and exit to the terminal with a custom exit code (less than 200).
+
+
+
+20.
+
+echo "changes to a directory and list the contents"
+DIRECTORY=$1
+cd $DIRCETORY 2>/dev/null
+if [ "$?" = "0" ]
+then
+        echo "we can change into the directory $DIRECTORY ,and here the contents"
+        echo "'ls-al'"
+else
+    echo "cannot change directories, exiting with an error and no listing"
+    exit 111
+fi
+
+
+============================================================================================================================================================================================
+
+
+Question 21:
+---------
+
+Create a simple script containing a single function. This function should display a message to clearly indicate it was generated when the function was run. Then, display another message outside the function clearly indicating it was generated outside of it.
+
+
+
+21.
+   
+   fun(){
+      echo "inside a function"
+      sleep 5
+   }
+
+   echo "calling a function"
+   sleep 5
+   fun
+   echo "outside the function"
+
+output:
+
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   calling a function
+   5
+
+   inside a function
+   1
+
+
+   outside the function
+
+============================================================================================================================================================================================
+
+
+Question 22:
+---------
+Create a script to demonstrate the visibility of variables and when they are available within a script and its functions. Define a global variable, a function that defines a local variable and then display both BEFORE calling the function, call the function, then display both AFTER calling the function.
+
+
+
+22.
+   fun(){
+      local lvar=9
+      echo "local variable  in function $lvar"
+      sleep 5
+      echo "global var in function $1"
+      sleep 5
+   }
+
+   gvar=10
+   echo "global variable befor calling function $gvar"
+   echo "local variable befor calling function $lvar"
+   sleep 5
+   echo "calling a function"
+   fun $gvar
+   sleep 5
+   echo " after calling a function"
+   sleep 5
+   echo "global variable befor calling function $gvar"
+   echo "local variable befor calling function $lvar"
+
+
+output:
+
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   global variable befor calling function 10
+   local variable befor calling function
+   1
+   calling a function
+   local variable  in function 9
+   2
+   3
+   global var in function 10
+   7
+
+============================================================================================================================================================================================
+
+
+Question 23:
+----------
+
+Write a script that takes a single command line parameter intended to be the user's first name. Prompt the user for their age and read that into a variable. Using the appropriate method to make that command line parameter visible to a function, pass the age captured to the function and display a message to the user addressing them by name and confirming their age, add a calculation of their age in number of days.
+
+
+
+23.
+
+
+fun(){
+    local age=$1
+    local total_days_in_year=365
+    in_days=$((age*total_days_in_year))
+    #echo $in_days
+    return $in_days
+}
+confirm(){
+    local age=$1
+    local name=$2
+    echo -e "is this your name $name and age $age is correct [y/n] : \c"
+    read choice
+    if [ $choice = 'y' ]
+    then 
+        fun $age
+        echo "Your name $name and age $age and your age in days $in_days"
+    elif [ $choice = 'n' ]
+    then 
+        echo "run again and please enter correct details"
+    else
+        echo "run again and enter proper choice" 
+    fi   
+}
+echo -e "enter your name : \c"
+read name
+echo -e "what is your age : \c"
+read age
+confirm $age $name
+
+
+
+output:
+   srinivas7661@LAPTOP:/mnt/c/Users/srini/Assignments1$ ./assignment2.sh
+   enter your name : srinivas
+   what is your age : 22
+   is this your name srinivas and age 22 is correct [y/n] : y
+   Your name srinivas and age 22 and your age in days 8030.
+
+===========================================================================================================================================================================================
+
+
+   
